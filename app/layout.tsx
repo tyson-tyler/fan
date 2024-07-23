@@ -6,6 +6,9 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/theme-provider";
+import Sidebar from "./dashboard/_components/SideNav";
+import { Toaster } from "react-hot-toast";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -48,7 +51,21 @@ export default function RootLayout({
             fontRaleway.variable
           )}
         >
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Sidebar />
+
+            <div className=" lg:ml-64 md:ml-[80px] ml-0">
+              <Toaster />
+
+              {children}
+            </div>
+            <Sidebar />
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
