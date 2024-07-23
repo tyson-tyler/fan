@@ -1,37 +1,20 @@
 "use client";
+import React, { useState } from "react";
+import SearchSection from "./dashboard/_components/SearchSection";
+import TemplateListSection from "./dashboard/_components/TemplateListSection";
 
-import React, { useState, useEffect } from "react";
+import ButtonGroup from "./dashboard/_components/banner";
+import Topbar from "@/components/Topbar";
 
-import Navbar from "@/components/shared/navbar";
-import Hero from "@/components/shared/Hero";
-import Footer from "@/components/shared/Footer";
-import Preloader from "@/components/shared/preloader";
-
-const Page = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1); // Simulate loading time
-
-    return () => clearTimeout(timer);
-  }, []);
-
+const page = () => {
   return (
-    <div className="w-full h-full bg-black text-white">
-      {isLoading ? (
-        <Preloader />
-      ) : (
-        <>
-          <Navbar />
-          <Hero />
-
-          <Footer />
-        </>
-      )}
-    </div>
+    <>
+      <Topbar />
+      <div className="md:m-[10px]">
+        <SearchSection />
+      </div>
+    </>
   );
 };
 
-export default Page;
+export default page;
