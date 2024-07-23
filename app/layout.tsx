@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import Sidebar from "./dashboard/_components/SideNav";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/components/Footer";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -64,7 +65,7 @@ export default function RootLayout({
 
               {children}
             </div>
-            <Sidebar />
+            <Footer />
           </ThemeProvider>
         </body>
       </html>

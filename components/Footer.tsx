@@ -13,7 +13,7 @@ import { FaGear } from "react-icons/fa6";
 import { UserButton } from "@clerk/nextjs";
 import Loader from "./Loader"; // Import your loader component
 
-const Sidebar = () => {
+const Footer = () => {
   const pathname = usePathname();
   const [activeLink, setActiveLink] = useState(pathname);
   const [indicatorStyle, setIndicatorStyle] = useState({});
@@ -115,4 +115,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default Footer;
